@@ -1,0 +1,26 @@
+#ERVcaller results
+
+CohortName_EC_out
+|____h_bam
+| |____sampleID1_h.bam
+| |____sampleID1_h.bam.bai
+| |____sampleID2_h.bam
+| |____sampleID2_h.bam.bai
+|____ori_vcf
+| |____sampleID1.vcf
+| |____sampleID2.vcf
+|____other_output
+| |____sampleID1_temp
+| |____sampleID1_sthYouLike
+| |____sampleID2_temp
+| |____sampleID2_sthYouLike
+|____job_io
+| |____xxx_sampleID1_xxx.out
+| |____xxx_sampleID1_xxx.err
+| |____xxx_sampleID1_xxx.sthYouLike
+| |____xxx_sampleID2_xxx.out
+| |____xxx_sampleID2_xxx.err
+| |____xxx_sampleID2_xxx.sthYouLike
+|____rlen
+| |____sampleID1.rl
+| |____sampleID2.rl
