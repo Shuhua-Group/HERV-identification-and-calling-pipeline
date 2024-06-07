@@ -32,7 +32,7 @@ ls reGT/*readSupportGTreplaced\.bcf > $f_reGTlist
 #merge vcf with representative ID only.
 bcftools merge --info-rules INFOR:join -l $f_reGTlist -O v -o ${f_represenPosVcf}
 cp ${f_represenPosVcf} ${f_represenPosVcf}_temp
-awk '{gsub("./.:.:.:.:.","./.:.:.,.,.:.:.",$0); print $0}' ${f_represenPosVcf}_temp > ${f_represenPosVcf}
+awk '{gsub(/[\./]+:.:.:.:./,"./.:.:.,.,.:.:.",$0); print $0}' ${f_represenPosVcf}_temp > ${f_represenPosVcf}
 
 vcftools --vcf ${f_represenPosVcf} --freq --out ${outfile_feature5}_frq
 pi=${outfile_feature5}_frq.frq

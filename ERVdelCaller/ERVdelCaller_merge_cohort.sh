@@ -56,7 +56,7 @@ fi
 
 #Get the list of merged positions
 echo -e "\n###############svimmer begins###############\n"
-python $svimmer --output ${cohortName}.merge_unsorted.vcf vcf_list chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY
+$python3 $svimmer --output ${cohortName}.merge_unsorted.vcf vcf_list chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY
 bcftools sort -o ${cohortName}.merge.vcf ${cohortName}.merge_unsorted.vcf && rm ${cohortName}.merge_unsorted.vcf
 echo -e "\n###############svimmer ends###############\n"
 
@@ -71,7 +71,7 @@ bedtools intersect -a ${ERV_bed_ref} -b DEL.chr.start-1.end-1.length.bed -wa -wb
 bedtools intersect -a ${ERV_bed_ref} -b DEL.chr.start-1.end-1.length.bed -wa -c|awk '{print $NF}' > bedtools.hg38_HERVd_entities_ERV1.count.table
 less bedtools.hg38_HERVd_entities_ERV1.DEL.chr.start-1.end-1.length.table|awk '{print $2,$3,$(NF-3),$(NF-2),$(NF-4),$(NF-1),$4,$NF}'|sed 's/ /\t/g' > reference_interval
 
-python $ERVdelCaller/scripts/calculate_overlap_percentage.py $my_analysis_dir
+$python3 $ERVdelCaller/scripts/calculate_overlap_percentage.py $my_analysis_dir
 awk '{print $3-$1}' $PWD/reference_interval_filtered_results.txt > left.distance
 awk '{print $4-$2}' $PWD/reference_interval_filtered_results.txt > right.distance
 awk '{print $2 - $1}' $PWD/reference_interval_filtered_results.txt > reference.interval.length
